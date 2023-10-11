@@ -1,0 +1,13 @@
+{% extends "todolist/layout.html" %}
+{% block body %}
+        <h1>Todos</h1>
+        <ol>
+            {% for todo in todos%}
+            <li>{{todo}}</li>
+            {% empty%}
+            <p> No Todos</p>
+            {% endfor %}
+        </ol>
+     <a href="{% url 'add' %}">Add todo</a>
+        
+{% endblock body %}
