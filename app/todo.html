@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+<script>
+
+     document.addEventListener('DOMContentLoaded',()=>{
+        document.querySelector('#todo').onclick=()=>{
+
+           const task = prompt("Enter you todo list")
+
+
+           let input = document.createElement('input')
+           input.setAttribute("type","checkbox")
+
+           let button = document.createElement('button')
+           button.setAttribute("id","b1")
+           button.innerHTML=`delete`
+           
+           let span = document.createElement('span')
+           span.innerHTML=task
+         let span1 = document.createElement('span')
+           let li =document.createElement('li')
+
+            
+           li.append(input)
+           li.append(span)
+           li.append(span1)
+           li.append(button)
+        
+           
+
+          const ol = document.querySelector('ol')
+          ol.append(li)
+
+          const Listcount = document.querySelectorAll('ol > li').length
+          document.querySelector('#p1').innerHTML = ` the number of Todo Task is ${Listcount}`
+
+          button.onclick = ()=>{
+            ol.removeChild(li)
+            const Listcount = document.querySelectorAll('ol > li').length
+            document.querySelector('#p1').innerHTML = ` the number of Todo Task is ${Listcount}`
+            
+          }
+
+          input.onchange = ()=>{
+           const checked = document.querySelectorAll('input[type="checkbox"]:checked').length
+           
+           document.querySelector('#p2').innerHTML=`The number of checked items is ${checked} `
+          }
+
+
+
+
+        }
+
+     })
+
+</script>
+    </head>
+    <body>
+       <p id="p1"></p>
+       <p id="p2"></p>
+        <ol></ol>
+        <button id="todo">add todo</button>
+    </body>
+
+
+</html>

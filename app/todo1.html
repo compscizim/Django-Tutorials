@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    document.addEventListener('DOMContentLoaded',()=>{
+
+      
+
+      document.querySelector('button').onclick=()=>{
+
+       
+     
+
+
+
+        const text = prompt("Add todo");
+        let li = document.createElement('li');
+    
+        let input = document.createElement('input');
+        input.setAttribute("type","checkbox");
+        let button = document.createElement('button');
+        button.setAttribute("class", "delete-button");
+        button.innerHTML="delete";
+        let span = document.createElement('span');
+        span.innerHTML=text;
+
+        li.append(input);
+        li.append(button);
+        li.append(span);
+
+        const ol = document.querySelector('ol');
+        ol.append(li);
+
+        const listItemCount = document.querySelectorAll('ol > li').length;
+        document.querySelector('#p1').innerHTML = `The number of todos is ${listItemCount}.`;
+
+       
+
+        button.onclick= ()=>{
+          ol.removeChild(li);
+          const listItemCount = document.querySelectorAll('ol > li').length;
+          document.querySelector('#p1').innerHTML = `The number of todos is ${listItemCount}.`;
+        }
+
+        
+        input.onchange= ()=>{
+
+          const checkedInputCount = document.querySelectorAll('input[type="checkbox"]:checked').length;
+        document.querySelector('#p2').innerHTML = `The number of checked todos is ${checkedInputCount}.`;
+        }
+
+        
+
+
+
+      }
+    })
+  </script>
+</head>
+<body>
+  <p id="p1"></p>
+  <p id="p2"></p>
+  <ol></ol>
+  <button> Add todo</button>
+</body>
+</html>
